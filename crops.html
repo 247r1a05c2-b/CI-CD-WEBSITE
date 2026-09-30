@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Catalog - AgriTech AI</title>
+    <style>
+        :root {
+            --bg-main: #0b0f19;
+            --bg-card: #151d30;
+            --border: #24314f;
+            --accent-green: #10b981;
+            --accent-blue: #38bdf8;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; }
+        body { background: var(--bg-main); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; width: 100%; }
+
+        header { width: 100%; background: rgba(21, 29, 48, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
+        .logo { font-size: 1.25rem; font-weight: 700; color: var(--text-main); text-decoration: none; }
+        .logo span { color: var(--accent-green); }
+        nav { display: flex; gap: 20px; }
+        nav a { color: var(--text-muted); text-decoration: none; font-size: 0.95rem; font-weight: 500; }
+        nav a:hover, nav a.active { color: var(--accent-green); }
+
+        main { flex: 1; width: 100%; max-width: 1200px; margin: 0 auto; padding: 40px 24px; }
+        h1 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; margin-bottom: 12px; }
+        p.subtitle { color: var(--text-muted); margin-bottom: 30px; font-size: 1rem; }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .crop-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .crop-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-green);
+        }
+
+        .crop-icon { font-size: 2rem; margin-bottom: 12px; }
+        .crop-name { font-size: 1.2rem; font-weight: 700; color: var(--text-main); margin-bottom: 6px; }
+        .crop-tag { display: inline-block; font-size: 0.75rem; background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); padding: 3px 10px; border-radius: 6px; margin-bottom: 12px; }
+        .crop-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+
+        footer { width: 100%; border-top: 1px solid var(--border); padding: 24px; text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-top: auto; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo"><span>🌱</span> AgriTech AI</a>
+            <nav>
+                <a href="index.html">Recommender</a>
+                <a href="crops.html" class="active">Crop Catalog</a>
+                <a href="about.html">About Model</a>
+                <a href="pipeline.html">DevOps Pipeline</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h1>Crop Reference Database</h1>
+        <p class="subtitle">Index of major agro-climatic crops categorized by physiological and soil requirements.</p>
+
+        <div class="catalog-grid">
+            <div class="crop-card">
+                <div class="crop-icon">🌾</div>
+                <div class="crop-name">Rice (Oryza Sativa)</div>
+                <span class="crop-tag">Kharif • High Water</span>
+                <p class="crop-desc">Thrives in heavy alluvial clay soils. Requires standing water and temperature ranges between 22°C to 32°C.</p>
+            </div>
+            <div class="crop-card">
+                <div class="crop-icon">🍞</div>
+                <div class="crop-name">Wheat (Triticum)</div>
+                <span class="crop-tag">Rabi • Moderate Water</span>
+                <p class="crop-desc">Optimal in loamy and clayey soils with cool vegetative periods and sunny ripening periods.</p>
+            </div>
+            <div class="crop-card">
+                <div class="crop-icon">🧵</div>
+                <div class="crop-name">Cotton (Gossypium)</div>
+                <span class="crop-tag">Kharif • Black Soil</span>
+                <p class="crop-desc">Best grown in deep regur (black) soils of Deccan plateau with long frost-free periods.</p>
+            </div>
+            <div class="crop-card">
+                <div class="crop-icon">🌽</div>
+                <div class="crop-name">Millets (Bajra / Jowar)</div>
+                <span class="crop-tag">Dryland • Low Water</span>
+                <p class="crop-desc">Highly resistant to adverse environmental conditions, low rainfall, and sandy shallow soils.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>DevOps Continuous Deployment Architecture • GitHub Actions Runner</footer>
+</body>
+</html>
