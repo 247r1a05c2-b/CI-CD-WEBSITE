@@ -24,7 +24,10 @@ jobs:
       - name: Verify HTML Files
         run: |
           test -f index.html
-          [ -s index.html ]
+          test -f recommender.html
+          test -f crops.html
+          test -f about.html
+          test -f pipeline.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
