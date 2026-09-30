@@ -3,45 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pipeline - AgriTech AI</title>
+    <title>Pipeline Flow - AgriTech AI</title>
     <style>
         :root {
-            --bg-main: #0b0f19;
-            --bg-card: #151d30;
-            --border: #24314f;
-            --accent-green: #10b981;
+            --bg-body: #061118;
+            --bg-surface: #0c1c24;
+            --bg-card: #12242e;
+            --border-subtle: #1e3845;
+            --accent-mint: #00e599;
+            --accent-glow: rgba(0, 229, 153, 0.15);
             --accent-blue: #38bdf8;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
+            --text-heading: #f1f7f6;
+            --text-body: #9cb3be;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; }
-        body { background: var(--bg-main); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; width: 100%; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
 
-        header { width: 100%; background: rgba(21, 29, 48, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
-        .nav-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
-        .logo { font-size: 1.25rem; font-weight: 700; color: var(--text-main); text-decoration: none; }
-        .logo span { color: var(--accent-green); }
-        nav { display: flex; gap: 20px; }
-        nav a { color: var(--text-muted); text-decoration: none; font-size: 0.95rem; font-weight: 500; }
-        nav a:hover, nav a.active { color: var(--accent-green); }
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-body);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            overflow-x: hidden;
+        }
 
-        main { flex: 1; width: 100%; max-width: 1200px; margin: 0 auto; padding: 40px 24px; }
-        h1 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; margin-bottom: 12px; }
-        p.subtitle { color: var(--text-muted); margin-bottom: 30px; font-size: 1rem; }
+        header {
+            width: 100%;
+            background: rgba(12, 28, 36, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-subtle);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-        .pipeline-flow { display: flex; flex-direction: column; gap: 16px; }
-        .flow-step {
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent-mint);
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-body);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-mint);
+        }
+
+        main {
+            flex: 1;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 24px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-section {
+            margin-bottom: 35px;
+        }
+
+        h1 {
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            color: var(--text-heading);
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .lead-text {
+            color: var(--text-body);
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            max-width: 850px;
+            line-height: 1.7;
+        }
+
+        .pipeline-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .stage-box {
             background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-left: 4px solid var(--accent-blue);
-            border-radius: 8px;
-            padding: 20px;
+            border: 1px solid var(--border-subtle);
+            border-left: 5px solid var(--accent-mint);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            transition: transform 0.2s;
         }
-        .flow-title { font-size: 1.1rem; font-weight: 700; color: var(--accent-blue); margin-bottom: 6px; }
-        .flow-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
 
-        footer { width: 100%; border-top: 1px solid var(--border); padding: 24px; text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-top: auto; }
+        .stage-box:hover {
+            transform: translateX(4px);
+        }
+
+        .stage-badge {
+            background: var(--accent-glow);
+            color: var(--accent-mint);
+            border: 1px solid var(--accent-mint);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .stage-content {
+            flex: 1;
+        }
+
+        .stage-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 6px;
+        }
+
+        .stage-desc {
+            font-size: 0.95rem;
+            color: var(--text-body);
+            line-height: 1.6;
+        }
+
+        footer {
+            width: 100%;
+            border-top: 1px solid var(--border-subtle);
+            padding: 24px;
+            text-align: center;
+            color: var(--text-body);
+            font-size: 0.85rem;
+            margin-top: auto;
+        }
     </style>
 </head>
 <body>
@@ -58,21 +195,42 @@
     </header>
 
     <main>
-        <h1>Cloud CI/CD Pipeline Workflow</h1>
-        <p class="subtitle">Complete zero-dependency pipeline orchestrated via GitHub Actions runners.</p>
+        <div class="hero-section">
+            <h1>DevOps CI/CD Deployment Flow</h1>
+            <p class="lead-text">
+                Continuous delivery pipeline that builds, tests, and deploys every commit to production without local tool installations.
+            </p>
+        </div>
 
-        <div class="pipeline-flow">
-            <div class="flow-step">
-                <div class="flow-title">1. Push Trigger (Source Control)</div>
-                <div class="flow-desc">Triggered automatically on commits pushed to the <code>main</code> branch via browser web editor.</div>
+        <div class="pipeline-stack">
+            <div class="stage-box">
+                <div class="stage-badge">1</div>
+                <div class="stage-content">
+                    <div class="stage-title">Continuous Integration: Code Push Trigger</div>
+                    <div class="stage-desc">
+                        Code commits directly to the <code>main</code> branch dispatch a trigger webhook that instantly boots a managed GitHub Actions virtual machine.
+                    </div>
+                </div>
             </div>
-            <div class="flow-step">
-                <div class="flow-title">2. Ephemeral Ubuntu Virtual Environment</div>
-                <div class="flow-desc">GitHub orchestrates a fresh <code>ubuntu-latest</code> runner, mounts code via <code>actions/checkout@v4</code>, and validates file structural integrity.</div>
+
+            <div class="stage-box">
+                <div class="stage-badge">2</div>
+                <div class="stage-content">
+                    <div class="stage-title">Automated Verification Runner</div>
+                    <div class="stage-desc">
+                        An isolated <code>ubuntu-latest</code> container runs automated shell assertions (<code>test -f</code> and <code>[ -s ]</code>) to confirm HTML structure, tags, and non-empty files.
+                    </div>
+                </div>
             </div>
-            <div class="flow-step">
-                <div class="flow-title">3. Live GitHub Pages Deployment</div>
-                <div class="flow-desc">Artifacts are bundled and deployed with TLS certificates to live production web endpoints with 0-downtime.</div>
+
+            <div class="stage-box">
+                <div class="stage-badge">3</div>
+                <div class="stage-content">
+                    <div class="stage-title">Continuous Deployment: Pages Publishing</div>
+                    <div class="stage-desc">
+                        Passed artifacts are packaged and pushed directly to the live GitHub Pages edge network with automatic TLS/HTTPS certification.
+                    </div>
+                </div>
             </div>
         </div>
     </main>
