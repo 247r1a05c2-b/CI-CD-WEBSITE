@@ -17,12 +17,14 @@ jobs:
       - name: Check All Website Files Exist
         run: |
           test -f index.html
+          test -f crops.html
           test -f about.html
           test -f pipeline.html
 
       - name: Validate All Files Not Empty
         run: |
           [ -s index.html ]
+          [ -s crops.html ]
           [ -s about.html ]
           [ -s pipeline.html ]
 
