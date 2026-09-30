@@ -15,24 +15,94 @@
             --text-muted: #94a3b8;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; }
-        body { background: var(--bg-main); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; width: 100%; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        }
 
-        header { width: 100%; background: rgba(21, 29, 48, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
-        .nav-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
-        .logo { font-size: 1.25rem; font-weight: 700; color: var(--text-main); text-decoration: none; }
-        .logo span { color: var(--accent-green); }
-        nav { display: flex; gap: 20px; }
-        nav a { color: var(--text-muted); text-decoration: none; font-size: 0.95rem; font-weight: 500; }
-        nav a:hover, nav a.active { color: var(--accent-green); }
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
 
-        main { flex: 1; width: 100%; max-width: 1200px; margin: 0 auto; padding: 40px 24px; }
-        h1 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; margin-bottom: 12px; }
-        p.subtitle { color: var(--text-muted); margin-bottom: 30px; font-size: 1rem; }
+        header {
+            width: 100%;
+            background: rgba(21, 29, 48, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent-green);
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-green);
+        }
+
+        main {
+            flex: 1;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        h1 {
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        p.subtitle {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
 
         .catalog-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 20px;
         }
 
@@ -40,7 +110,9 @@
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 24px;
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
             transition: transform 0.2s, border-color 0.2s;
         }
 
@@ -49,12 +121,44 @@
             border-color: var(--accent-green);
         }
 
-        .crop-icon { font-size: 2rem; margin-bottom: 12px; }
-        .crop-name { font-size: 1.2rem; font-weight: 700; color: var(--text-main); margin-bottom: 6px; }
-        .crop-tag { display: inline-block; font-size: 0.75rem; background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); padding: 3px 10px; border-radius: 6px; margin-bottom: 12px; }
-        .crop-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+        .crop-icon {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+        }
 
-        footer { width: 100%; border-top: 1px solid var(--border); padding: 24px; text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-top: auto; }
+        .crop-name {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 6px;
+        }
+
+        .crop-tag {
+            align-self: flex-start;
+            font-size: 0.75rem;
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--accent-blue);
+            padding: 3px 10px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .crop-desc {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        footer {
+            width: 100%;
+            border-top: 1px solid var(--border);
+            padding: 24px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: auto;
+        }
     </style>
 </head>
 <body>
@@ -72,32 +176,135 @@
 
     <main>
         <h1>Crop Reference Database</h1>
-        <p class="subtitle">Index of major agro-climatic crops categorized by physiological and soil requirements.</p>
+        <p class="subtitle">Complete catalog of 16 agro-climatic crops categorized by soil conditions, season, and rainfall requirements.</p>
 
         <div class="catalog-grid">
+            <!-- 1 -->
             <div class="crop-card">
                 <div class="crop-icon">🌾</div>
                 <div class="crop-name">Rice (Oryza Sativa)</div>
                 <span class="crop-tag">Kharif • High Water</span>
-                <p class="crop-desc">Thrives in heavy alluvial clay soils. Requires standing water and temperature ranges between 22°C to 32°C.</p>
+                <p class="crop-desc">Optimal in clayey alluvial soils with continuous moisture. Requires standing water and warm conditions (22°C–32°C).</p>
             </div>
+
+            <!-- 2 -->
             <div class="crop-card">
                 <div class="crop-icon">🍞</div>
                 <div class="crop-name">Wheat (Triticum)</div>
                 <span class="crop-tag">Rabi • Moderate Water</span>
-                <p class="crop-desc">Optimal in loamy and clayey soils with cool vegetative periods and sunny ripening periods.</p>
+                <p class="crop-desc">Needs cool growing temperatures (10°C–15°C) and warm ripening weather. Well-suited to loamy alluvial soil beds.</p>
             </div>
+
+            <!-- 3 -->
+            <div class="crop-card">
+                <div class="crop-icon">🌽</div>
+                <div class="crop-name">Maize (Zea Mays)</div>
+                <span class="crop-tag">Kharif • Moderate Water</span>
+                <p class="crop-desc">Versatile food and fodder grain that thrives in well-drained loamy to sandy soils with abundant sunshine.</p>
+            </div>
+
+            <!-- 4 -->
             <div class="crop-card">
                 <div class="crop-icon">🧵</div>
                 <div class="crop-name">Cotton (Gossypium)</div>
                 <span class="crop-tag">Kharif • Black Soil</span>
-                <p class="crop-desc">Best grown in deep regur (black) soils of Deccan plateau with long frost-free periods.</p>
+                <p class="crop-desc">Major commercial fiber crop requiring deep, moisture-retentive black regur soils and 210+ frost-free days.</p>
             </div>
+
+            <!-- 5 -->
             <div class="crop-card">
-                <div class="crop-icon">🌽</div>
-                <div class="crop-name">Millets (Bajra / Jowar)</div>
-                <span class="crop-tag">Dryland • Low Water</span>
-                <p class="crop-desc">Highly resistant to adverse environmental conditions, low rainfall, and sandy shallow soils.</p>
+                <div class="crop-icon">🎋</div>
+                <div class="crop-name">Sugarcane</div>
+                <span class="crop-tag">Perennial • High Water</span>
+                <p class="crop-desc">Long-duration crop needing tropical warmth, high humidity, fertile alluvial soil, and sustained irrigation.</p>
+            </div>
+
+            <!-- 6 -->
+            <div class="crop-card">
+                <div class="crop-icon">🫘</div>
+                <div class="crop-name">Soybean</div>
+                <span class="crop-tag">Kharif • Moderate Water</span>
+                <p class="crop-desc">High-protein legume cultivated extensively in fertile black soils; fixes atmospheric nitrogen to boost soil fertility.</p>
+            </div>
+
+            <!-- 7 -->
+            <div class="crop-card">
+                <div class="crop-icon">🌻</div>
+                <div class="crop-name">Sunflower</div>
+                <span class="crop-tag">Zaid / Kharif • Drought Hardy</span>
+                <p class="crop-desc">Adaptable oilseed performing well across diverse soils, needing light-to-moderate moisture and full solar exposure.</p>
+            </div>
+
+            <!-- 8 -->
+            <div class="crop-card">
+                <div class="crop-icon">🥣</div>
+                <div class="crop-name">Chickpeas (Gram)</div>
+                <span class="crop-tag">Rabi • Low Water</span>
+                <p class="crop-desc">Crucial pulse crop thriving in mild winter temperatures and well-aerated sandy loam or clay loam soils.</p>
+            </div>
+
+            <!-- 9 -->
+            <div class="crop-card">
+                <div class="crop-icon">🥜</div>
+                <div class="crop-name">Groundnut (Peanut)</div>
+                <span class="crop-tag">Kharif • Sandy Loam</span>
+                <p class="crop-desc">Requires loose, sandy-textured soils to enable easy subterranean peg penetration and pod development.</p>
+            </div>
+
+            <!-- 10 -->
+            <div class="crop-card">
+                <div class="crop-icon">🌼</div>
+                <div class="crop-name">Mustard</div>
+                <span class="crop-tag">Rabi • Moderate Water</span>
+                <p class="crop-desc">Major cool-season oilseed thriving in loamy soils across sub-tropical climates with clear sunny days.</p>
+            </div>
+
+            <!-- 11 -->
+            <div class="crop-card">
+                <div class="crop-icon">🌾</div>
+                <div class="crop-name">Pearl Millet (Bajra)</div>
+                <span class="crop-tag">Kharif • Arid Resilient</span>
+                <p class="crop-desc">Extremely resilient dryland cereal capable of producing reliable yields in nutrient-poor, sandy desert soils.</p>
+            </div>
+
+            <!-- 12 -->
+            <div class="crop-card">
+                <div class="crop-icon">🥣</div>
+                <div class="crop-name">Sorghum (Jowar)</div>
+                <span class="crop-tag">Kharif/Rabi • Low Water</span>
+                <p class="crop-desc">Drought-tolerant dual-purpose crop (grain and fodder) that flourishes in semi-arid black and clayey soils.</p>
+            </div>
+
+            <!-- 13 -->
+            <div class="crop-card">
+                <div class="crop-icon">🍉</div>
+                <div class="crop-name">Watermelon</div>
+                <span class="crop-tag">Zaid • Warm Climate</span>
+                <p class="crop-desc">Fast-maturing summer crop requiring long warm days, dry weather during ripening, and well-drained sandy riverbeds.</p>
+            </div>
+
+            <!-- 14 -->
+            <div class="crop-card">
+                <div class="crop-icon">☕</div>
+                <div class="crop-name">Coffee (Arabica / Robusta)</div>
+                <span class="crop-tag">Plantation • High Altitude</span>
+                <p class="crop-desc">Requires shade canopy, well-drained volcanic or red laterite soils, and steady rainfall on undulating hill slopes.</p>
+            </div>
+
+            <!-- 15 -->
+            <div class="crop-card">
+                <div class="crop-icon">🍵</div>
+                <div class="crop-name">Tea (Camellia Sinensis)</div>
+                <span class="crop-tag">Plantation • High Rainfall</span>
+                <p class="crop-desc">Thrives in acidic, organic-rich soil on sloped terrain to ensure excellent water drainage without water-logging.</p>
+            </div>
+
+            <!-- 16 -->
+            <div class="crop-card">
+                <div class="crop-icon">🥔</div>
+                <div class="crop-name">Potato</div>
+                <span class="crop-tag">Rabi • Loose Loam</span>
+                <p class="crop-desc">Requires friable, loose loamy soil rich in organic matter and moderate cool weather for optimal tuber expansion.</p>
             </div>
         </div>
     </main>
